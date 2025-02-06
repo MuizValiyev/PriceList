@@ -210,6 +210,7 @@ const styles = StyleSheet.create({
     paddingInline:9,
     borderRadius:12,
     backgroundColor:'#1C1D26',
+    zIndex:101,
   },
   text_left:{
     color:'#FFFFFF',
@@ -236,11 +237,14 @@ const styles = StyleSheet.create({
     borderRadius:14,
   },
   popup:{
-    backgroundColor:'#14151B',
-    width:100,
-    height:100,
+    backgroundColor:'#1C1D26',
+    borderRadius:12,
+    width:70,
+    height:50,
     position:'absolute',
-    zIndex:1000,
+    right:12,
+    top:10,
+    zIndex:100,
   }
 });
 
