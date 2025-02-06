@@ -86,13 +86,13 @@ const App = ({ navigation }) => {
               <Text style={styles.text_left}>Выберите валюту</Text>
             </View>
             <TouchableOpacity onPress={HandlePopup} style={styles.Sum}>
-               <Text style={styles.text_right}>{uzs && 'UZS'}{usd && 'UZD'}</Text>
+               <Text style={styles.text_right}>{uzs && 'UZS'}{usd && 'USD'}</Text>
               <Settings_arrow />
             </TouchableOpacity>
             {popup ? (
             <View style={styles.popup}>
-              <TouchableOpacity onPress={() => {HandleUzs(); setPopup(false)}}><Text>UZS</Text></TouchableOpacity>
-              <TouchableOpacity onPress={() => {HandleUzd(); setPopup(false)}}><Text>UZD</Text></TouchableOpacity>
+              <TouchableOpacity style={uzs ? styles.currencyActive : styles.currency} onPress={() => {HandleUzs(); setPopup(false)}}><Text style={styles.currencyText}>UZS</Text></TouchableOpacity>
+              <TouchableOpacity style={usd ? styles.currencyActive : styles.currency} onPress={() => {HandleUzd(); setPopup(false)}}><Text style={styles.currencyText}>USD</Text></TouchableOpacity>
             </View>
           ) : (<></>)}
           </View>
@@ -254,13 +254,31 @@ const styles = StyleSheet.create({
     backgroundColor:'#1C1D26',
     borderRadius:12,
     width:70,
-    height:70,
+    height:90,
     position:'absolute',
     right:12,
-    top:10,
+    top:12,
     zIndex:100,
     display:'flex',
     justifyContent:'flex-end',
+    gap:4,
+    padding:4,
+  },
+  currencyText:{
+    color:'#FFFFFF',
+    textAlign:'center',
+  },
+  currencyActive:{
+    borderColor:'#7C55FB',
+    borderWidth:1,
+    borderRadius:12,
+    padding:4,
+    backgroundColor:'#2C2D3D',
+  },
+  currency:{
+    padding:4,
+    backgroundColor:'#2C2D3D',
+    borderRadius:12,
   }
 });
 
