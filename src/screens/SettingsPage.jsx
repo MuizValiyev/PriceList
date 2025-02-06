@@ -18,6 +18,7 @@ import Settings_login from '../img/settings_login.svg';
 import Settings_money from '../img/settings_money.svg';
 import Settings_plus from '../img/settings_plus.svg';
 import Settings_sun from '../img/settings_sun.svg';
+import Settings_ArrowTop from '../img/settings_arrowTop.svg';
 
 import { NavigateTo } from '../components/routesUtils';
 
@@ -87,7 +88,11 @@ const App = ({ navigation }) => {
             </View>
             <TouchableOpacity onPress={HandlePopup} style={styles.Sum}>
                <Text style={styles.text_right}>{uzs && 'UZS'}{usd && 'USD'}</Text>
+               {popup ? (
+                <Settings_ArrowTop />
+               ) : (
               <Settings_arrow />
+               )}
             </TouchableOpacity>
             {popup ? (
             <View style={styles.popup}>
