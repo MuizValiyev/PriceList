@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -28,6 +28,12 @@ const App = ({ navigation }) => {
       headerShown: false,
     });
   }, [navigation]);
+
+  const [popup, setPopup] = useState(false);
+
+  const HandlePopup = () => {
+    setPopup(!popup);
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -68,10 +74,13 @@ const App = ({ navigation }) => {
               <Settings_money />
               <Text style={styles.text_left}>Выберите валюту</Text>
             </View>
-            <View style={styles.Sum}>
+            <TouchableOpacity onPress={HandlePopup} style={styles.Sum}>
                <Text style={styles.text_right}>UZS</Text>
               <Settings_arrow />
-            </View>
+            </TouchableOpacity>
+            {popup ? (
+            <View style={styles.popup}></View>
+          ) : (<></>)}
           </View>
 
           <View style={styles.user}>
@@ -226,6 +235,13 @@ const styles = StyleSheet.create({
     backgroundColor:'#2C2D3D',
     borderRadius:14,
   },
+  popup:{
+    backgroundColor:'#14151B',
+    width:100,
+    height:100,
+    position:'absolute',
+    zIndex:1000,
+  }
 });
 
 export default App;
